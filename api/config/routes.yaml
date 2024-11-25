@@ -1,0 +1,13 @@
+
+shared:
+    resource: '../src/Shared/Infrastructure/Controller'
+    type: attribute
+
+api_login_check:
+    path: /api/login_check
+    methods: POST
+
+api_platform:
+     resource: 'routes/api_platform.yaml'
+
+

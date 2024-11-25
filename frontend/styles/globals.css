@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #111827;
+    --table-header-bg: #f9fafb;
+    --table-cell-bg: #ffffff;
+    --input-bg: #f9fafb;
+    --header-bg: #f3f4f6;
+    --table-border-color: #d1d5db;
+    --div-bg: #ffffff; 
+    --input-border-color: #d1d5db; 
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    color: var(--text-color);
+    padding: 8px;
+    border: 1px solid var(--table-border-color);
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid var(--table-border-color);
+    background-color: var(--table-cell-bg);
+}
+
+td:last-child {
+    border-right: none;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+   background-color: #000!important;
+
+}
+

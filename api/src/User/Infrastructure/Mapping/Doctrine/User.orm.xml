@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\User\Domain\Entity\User" table="user" repository-class="App\User\Infrastructure\Repository\UserRepository">
+
+        <id name="id" type="uuid_value_object">
+            <generator strategy="NONE"/>
+        </id>
+
+        <field name="username" type="string" length="255" column="username"/>
+
+        <field name="email" type="string" length="255" column="email" unique="true"/>
+
+        <field name="password" type="string" length="255" column="password"/>
+
+        <field name="roles" type="json" column="roles" />
+
+        <indexes>
+            <index columns="email" name="email_idx"/>
+        </indexes>
+
+    </entity>
+
+</doctrine-mapping>

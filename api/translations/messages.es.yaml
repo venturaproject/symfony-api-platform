@@ -1,0 +1,14 @@
+hello: "Hola"
+goodbye: "Adiós"
+dear_user: "Estimado Usuario"
+change_password_success: "Cambio de Contraseña Exitoso"
+new_password: "Nueva Contraseña:"
+change_time: "Fecha y Hora del Cambio:"
+if_not_requested: "Si no ha solicitado este cambio, por favor contacte con el soporte técnico."
+thank_you: "Gracias por utilizar nuestro servicio."
+password_change_message: "Su contraseña ha sido cambiada exitosamente. A continuación, se detalla la nueva contraseña:"
+report_title: 'Reporte de Productos'
+report_message: 'Se ha generado un nuevo reporte de productos.'
+report_name: 'Nombre del Reporte'
+generation_time: 'Hora de Generación'
+download_instructions: 'Puedes encontrar el reporte adjunto a este correo.'

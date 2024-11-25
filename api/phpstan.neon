@@ -1,0 +1,9 @@
+parameters:
+    level: 6
+    paths:
+        - src
+    tmpDir: %rootDir%/tmp/phpstan
+    customRulesetUsed: false
+
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon

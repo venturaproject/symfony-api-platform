@@ -1,0 +1,28 @@
+# config/packages/api_platform.yaml
+parameters:
+    env(API_TITLE): 'Products API'
+    env(API_VERSION): 1.0.0
+
+api_platform:
+    title: '%env(API_TITLE)%' 
+    description: '%env(API_TITLE)% resources'
+    version: '%env(API_VERSION)%' 
+    show_webby: false
+    defaults:
+        stateless: true
+        cache_headers:
+            vary: ['Content-Type', 'Authorization', 'Origin']
+    formats:
+        json: ['application/json']
+        jsonld: ['application/ld+json']
+    swagger:
+         api_keys:
+             JWT:
+                name: Authorization
+                type: header
+    mapping:
+        paths:
+            - '%kernel.project_dir%/src/Product/Infrastructure/ApiPlatform/Resource/'
+            - '%kernel.project_dir%/src/User/Infrastructure/ApiPlatform/Resource/'
+    exception_to_status:
+        App\Product\Application\Exception\ProductNotFoundException: 404

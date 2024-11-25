@@ -1,0 +1,14 @@
+hello: "Hi!"
+goodbye: "Bye"
+change_password_success: "Password Change Successful"
+new_password: "New Password:"
+change_time: "Date and Time of Change:"
+if_not_requested: "If you did not request this change, please contact support."
+thank_you: "Thank you for using our service."
+password_change_message: "Your password has been successfully changed. The new password is listed below:"
+report_title: 'Product Report'
+report_message: 'A new product report has been generated.'
+report_name: 'Report Name'
+generation_time: 'Generation Time'
+download_instructions: 'You can find the report attached to this email.'
+

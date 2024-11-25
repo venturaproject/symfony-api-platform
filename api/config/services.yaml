@@ -1,0 +1,49 @@
+services:
+    # Default configuration for services in this file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    _instanceof:
+        App\Shared\Application\Command\CommandHandlerInterface:
+            tags: { name: messenger.message_handler, bus: command.bus }
+        App\Shared\Application\Query\QueryHandlerInterface:
+            tags: { name: messenger.message_handler, bus: query.bus }
+        App\Shared\Application\Event\EventHandlerInterface:
+            tags: { name: messenger.message_handler, bus: event.bus }
+    
+    # General auto-registration for App namespace
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+
+    # EventPublisher service configuration
+
+    App\Shared\Infrastructure\EventListener\ApiExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, priority: -10 }
+
+    App\Shared\Infrastructure\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+            
+    App\Shared\Application\Service\EventPublisher:
+        arguments:
+            $eventDispatcher: '@event_dispatcher' 
+
+    App\Product\Application\EventListener\ProductCreatedListener:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    App\Shared\Application\Service\EmailService:
+        arguments:
+            $mailer: '@mailer'
+            $twig: '@twig'
+
+
+
+    
