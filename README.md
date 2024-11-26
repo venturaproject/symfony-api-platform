@@ -31,7 +31,12 @@ To install this project, follow these steps:
    git clone https://github.com/venturaproject/symfony-api-platform.git
    cd symfony-api-platform
    make run
+##
 
+[![api_status_min](https://i.ibb.co/FVZZfbG/api-status-min.png)](https://i.ibb.co/Vj0Mq6q/api-status.png)
+[![swagger_min](https://i.ibb.co/FVZZfbG/api-status-min.png)](https://i.ibb.co/3y8nzFY/swagger.png)
+[![login_min](https://i.ibb.co/FVZZfbG/api-status-min.png)](https://i.ibb.co/TKMcdJV/login-ui.png)
+[![product_min](https://i.ibb.co/FVZZfbG/api-status-min.png)](https://i.ibb.co/5Lk8D53/product-list.png)
 
 ## Architecture
    ```
