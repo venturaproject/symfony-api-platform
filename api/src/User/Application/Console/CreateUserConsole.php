@@ -45,7 +45,6 @@ class CreateUserConsole extends Command
         $email = $input->getArgument('email');
         $password = $input->getArgument('password');
     
-        // Se pasa el rol "ROLE_USER" por defecto
         $createUserInputDTO = new CreateUserInputDTO($email, $password, $username, ["ROLE_USER"]);
     
         // Validación del DTO
@@ -58,11 +57,10 @@ class CreateUserConsole extends Command
             return Command::FAILURE;
         }
     
-        // Al crear el comando, ya pasamos los roles por defecto
+
         $createUserCommand = new CreateUserCommand($username, $email, $password, ["ROLE_USER"]);
     
         try {
-            // Ejecución del comando para crear el usuario
             $this->commandBus->execute($createUserCommand);
             $io->success('User successfully created via CLI!');
             $io->table(['Username', 'Email'], [[$username, $email]]);
