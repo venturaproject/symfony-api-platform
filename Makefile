@@ -49,6 +49,9 @@ migrate-test-db:
 fixtures:
 	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:fixtures:load --append
 
+create-user:
+	@docker exec -it $(APP_CONTAINER) php bin/console app:create-user-cli "Jane Doe" janedoe@example.com securePassword
+
 fixtures-test:
 	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:fixtures:load --env=test --no-interaction --purge-with-truncate
 
