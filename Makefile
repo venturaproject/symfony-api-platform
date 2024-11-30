@@ -41,9 +41,19 @@ sta:
 
 migrations:
 	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:migrations:migrate --no-interaction
+	
+migrate-test-db:
+	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:migrations:migrate --env=test --no-interaction
+	@echo "Migrations executed for test database."
 
 fixtures:
 	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:fixtures:load --append
+
+fixtures-test:
+	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:fixtures:load --env=test --no-interaction --purge-with-truncate
+
+create-user-test:
+	@docker exec -it $(APP_CONTAINER) php bin/console app:create-user-cli --env=test testuser testuser@example.com testpassword
 
 messenger-consume:
 	@docker exec -it $(APP_CONTAINER) php bin/console doctrine:fixtures:load --append
@@ -57,6 +67,13 @@ frontend-container:
 db-container:
 	@docker exec -it $(DB_CONTAINER) bash
 
+create-db:
+	@docker exec -it $(DB_CONTAINER) mysql -u root -p$(DB_ROOT_PASSWORD) -e "CREATE DATABASE IF NOT EXISTS symfony_api_test;"
+	@echo "Database 'symfony_api_test' created (if it didn't exist)."
+
+grant-permissions:
+	@docker exec -i mysql-${PROJECT_NAME} mysql -u root -proot -e "GRANT ALL PRIVILEGES ON symfony_api_test.* TO 'admin'@'%'; FLUSH PRIVILEGES;"
+	
 supervisor-container:
 	@docker exec -it $(SUPERVISOR_CONTAINER) bash
 
