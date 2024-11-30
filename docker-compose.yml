@@ -8,7 +8,7 @@ services:
         VERSION: latest
     container_name: symfony-${PROJECT_NAME}
     environment:
-      DATABASE_URL: "mysql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}?serverVersion=8.0&charset=utf8mb4"
+      DATABASE_URL: "mysql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}?serverVersion=8.0.40&charset=utf8mb4"
     volumes:
       - ./api:/var/www
       - ./infrastructure/php/php.ini:/usr/local/etc/php/conf.d/docker-php-config.ini

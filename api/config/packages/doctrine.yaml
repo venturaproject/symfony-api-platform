@@ -1,6 +1,7 @@
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
+        server_version: '8.0.40'
 
         types:
             uuid_value_object: App\Shared\Infrastructure\Persistence\Doctrine\Types\UuidValueObjectType
